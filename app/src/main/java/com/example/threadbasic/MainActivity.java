@@ -12,6 +12,24 @@ public class MainActivity extends AppCompatActivity {
 
     String TAG = "THREAD";
 
+    String TAG2 = "THREAD2";
+
+    class Runnable implements java.lang.Runnable{
+        @Override
+        public void run() {
+            int i = 0;
+            for(i = 0; i < 20 && running; i++) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+
+                }
+                Log.v(TAG2, "Runnable time= " +i);
+            }
+        }
+
+    }
+
     class WorkerThread extends Thread {
         public void run() {
             int i = 0;
